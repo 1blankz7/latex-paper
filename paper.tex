@@ -1,0 +1,62 @@
+\documentclass[runningheads,a4paper]{llncs}
+
+\usepackage{amssymb}
+\setcounter{tocdepth}{3}
+\usepackage{graphicx}
+
+\usepackage{url}
+% author mail
+\urldef{\mail}\path|christian.blank@hawhamburg.de|    
+\newcommand{\keywords}[1]{\par\addvspace\baselineskip
+\noindent\keywordname\enspace\ignorespaces#1}
+
+\usepackage[
+    hmarginratio=1:1,
+    top=25mm,
+    bottom=25mm,
+    columnsep=20pt,
+    footnotesep=1cm,
+    left=25mm
+]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}    %% Umlaute direkt eingeben
+\usepackage{mathptmx}          %% schmal laufende Times als Brotschrift
+\usepackage[scaled=.92]{helvet}%% Helvetica als Grotesk
+\usepackage{ngerman}
+\usepackage[ngerman]{babel}
+%\usepackage{microtype}         %% Optischer Randausgleich mit pdfLaTeX
+\usepackage{textcomp}          %% besondere Textzeichen
+\usepackage{amssymb}           %% Mathesymbole
+\usepackage{amsmath}           %% erweiterte Mathemakros
+
+\begin{document}
+
+% first the title is needed
+\title{Long long title}
+
+% a short form should be given in case it is too long for the running head
+\titlerunning{Short title}
+
+\author{Christian Blank}
+\date{ \today }
+
+% the affiliations are given next; don't give your e-mail address
+% unless you accept that it will be published
+\institute{HAW Hamburg, Technik und Informatik,\\
+Berliner Tor 5, Hamburg, Germany\\
+\mail \\
+\url{http://www.haw-hamburg.de}}
+
+\maketitle
+
+\input{content}
+
+\newpage
+
+
+\bibliographystyle{alphadin}
+% path to bibtex file
+\bibliography{~/git/interactivelab/bibtex/christian}
+
+\end{document}
