@@ -5,4 +5,4 @@ bibtex:
 	bibtex paper
 
 clean:	
-	rm *.dvi *.pdf *.log *.aux *.blg 
+	rm paper.dvi paper.pdf *.log *.aux *.blg 
