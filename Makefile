@@ -1,8 +1,12 @@
-all:	
-	pdflatex paper.tex
+FILE=paper
+
+all: pdf	
+
+pdf:
+	pdflatex $(FILE).tex
 
 bibtex: 
-	bibtex paper
+	bibtex $(FILE)
 
 clean:	
 	rm *.dvi *.pdf *.log *.aux *.blg 
