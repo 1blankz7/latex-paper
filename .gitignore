@@ -19,8 +19,10 @@
 *.maf
 *.mtc
 *.mtc1
+*.nav
 *.out
 *.pdf
+*.snm
 *.synctex.gz
 *.toc
 *~
