@@ -1,12 +1,27 @@
 FILE=paper
 
-all: pdf bibtex pdf
+all: pdf
 
-pdf:
-	pdflatex $(FILE).tex
+pdf: $(FILE).pdf
 
-bibtex: 
+$(FILE).pdf:
+	pdflatex $(FILE)
+	#makeindex $(FILE).idx
+	pdflatex $(FILE)
+	latex_count=5 ; \
+	# from doxygen latex template
+	while egrep -s 'Rerun (LaTeX|to get cross-references right)' $(FILE).log && [ $$latex_count -gt 0 ] ;\
+	    do \
+	      echo "Rerunning latex...." ;\
+	      pdflatex $(FILE) ;\
+	      latex_count=`expr $$latex_count - 1` ;\
+	    done
+	#makeindex $(FILE).idx
+	pdflatex $(FILE)
+
+bibtex:
 	bibtex $(FILE)
 
 clean:	
-	rm $(FILE).dvi $(FILE).pdf *.log *.aux *.blg 
+	rm -f $(FILE).snm $(FILE).toc $(FILE).nav $(FILE).out
+	rm -f *.ps *.dvi *.aux *.toc *.idx *.ind *.ilg *.log *.out *.brf *.blg *.bbl $(FILE).pdf
