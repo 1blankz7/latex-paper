@@ -7,6 +7,7 @@ pdf: $(FILE).pdf
 $(FILE).pdf:
 	pdflatex $(FILE)
 	#makeindex $(FILE).idx
+	make bibtex
 	pdflatex $(FILE)
 	latex_count=5 ; \
 	# from doxygen latex template
