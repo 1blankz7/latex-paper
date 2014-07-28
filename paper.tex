@@ -1,24 +1,10 @@
 \documentclass[runningheads,a4paper]{llncs}
 
-\usepackage{amssymb}%% Mathesymbole
+\usepackage{amssymb}
 \setcounter{tocdepth}{3}
 \usepackage{graphicx}
-
+\usepackage{float}
 \usepackage{url}
-% author mail
-\urldef{\mail}\path|christian.blank@hawhamburg.de|    
-\newcommand{\keywords}[1]{\par\addvspace\baselineskip
-\noindent\keywordname\enspace\ignorespaces#1}
-
-\usepackage[
-    hmarginratio=1:1,
-    top=25mm,
-    bottom=25mm,
-    columnsep=20pt,
-    footnotesep=1cm,
-    left=25mm
-]{geometry}
-
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}    %% Umlaute direkt eingeben
 \usepackage{mathptmx}          %% schmal laufende Times als Brotschrift
@@ -28,8 +14,93 @@
 %\usepackage{microtype}         %% Optischer Randausgleich mit pdfLaTeX
 \usepackage{textcomp}          %% besondere Textzeichen
 \usepackage{amsmath}           %% erweiterte Mathemakros
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[
+    hmarginratio=1:1,
+    top=25mm,
+    bottom=25mm,
+    columnsep=20pt,
+    footnotesep=1cm,
+    left=25mm
+]{geometry}
+% author mail
+\urldef{\mail}\path|christian.blank@hawhamburg.de|    
+\newcommand{\keywords}[1]{\par\addvspace\baselineskip
+\noindent\keywordname\enspace\ignorespaces#1}
+
+\def\signed #1{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip2em
+  \hbox{}\nobreak\hfil #1%
+  \parfillskip=0pt \finalhyphendemerits=0 \endgraf}}
+
+\newsavebox\mybox
+\newenvironment{aquote}[1]
+  {\savebox\mybox{#1}\begin{quote}}
+  {\signed{\usebox\mybox}\end{quote}}
+
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\definecolor{listinggray}{gray}{0.9}
+\colorlet{numb}{magenta!60!black}
+
+\lstdefinelanguage{json}{
+    basicstyle=\normalfont\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{background},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+
 
 \begin{document}
+
+\lstset{
+    backgroundcolor=\color{background},
+    tabsize=4,
+    language=C++,
+    basicstyle=\footnotesize,
+    upquote=true,
+    aboveskip={1.5\baselineskip},
+    columns=fixed,
+    showstringspaces=false,
+    extendedchars=false,
+    breaklines=true,
+    prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=lines,
+    numbers=left,
+    numberstyle=\tiny,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    identifierstyle=\color{magenta},
+    keywordstyle=\color[rgb]{0,0,1},
+    commentstyle=\color[rgb]{0.026,0.312,0.095},
+    stringstyle=\color[rgb]{0.627,0.126,0.941},
+    numberstyle=\color[rgb]{0.205, 0.142, 0.73},
+    captionpos=b
+}
 
 % first the title is needed
 \title{Long long title}

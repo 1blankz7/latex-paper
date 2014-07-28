@@ -1,6 +1,6 @@
 FILE=paper
 
-all: pdf
+all: clean pdf
 
 pdf: $(FILE).pdf
 
@@ -24,4 +24,4 @@ bibtex:
 
 clean:	
 	rm -f $(FILE).snm $(FILE).toc $(FILE).nav $(FILE).out
-	rm -f *.ps *.dvi *.aux *.toc *.idx *.ind *.ilg *.log *.out *.brf *.blg *.bbl $(FILE).pdf
+	rm -f *.lof *.ps *.dvi *.aux *.toc *.idx *.ind *.ilg *.log *.out *.brf *.blg *.bbl $(FILE).pdf
